@@ -1,0 +1,130 @@
+$graywhite: #f2f2f2;
+$darkgreen: #425e25;
+$white: #ffffff;
+
+#banner {
+  .image {
+    object-fit: cover;
+    width: 100%;
+    height: 700px;
+  }
+}
+
+.article {
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  .image-wrapper {
+    .image {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .content-wrapper {
+    max-width: 50vw;
+    text-align: justify;
+    display: flex;
+    align-items: center;
+  }
+
+  &.article-1 {
+    padding-bottom: 0;
+    .image-wrapper {
+      max-width: 50vw;
+      .image {
+        width: 100%;
+        height: 300px;
+      }
+    }
+    @media screen and (max-width: 501px) {
+      display: block;
+      .image-wrapper,
+      .content-wrapper {
+        max-width: unset;
+      }
+    }
+  }
+
+  &.article-2 {
+    .image-wrapper {
+      max-width: 50vw;
+      .image {
+        width: 100%;
+        height: 400px;
+      }
+    }
+    .content-wrapper {
+      padding-right: 3rem;
+    }
+    .image-wrapper-mobile {
+      display: none;
+    }
+    @media screen and (max-width: 501px) {
+      display: block;
+      .image-wrapper {
+        display: none;
+      }
+      .image-wrapper-mobile {
+        display: block;
+        .image {
+          width: 100%;
+          height: 400px;
+        }
+      }
+      .content-wrapper {
+        max-width: unset;
+      }
+      .content-wrapper {
+        padding-right: unset;
+      }
+    }
+  }
+}
+
+#horizontal {
+  background: $graywhite;
+  overflow-y: scroll;
+  display: flex;
+  padding: 2rem;
+  max-width: 100vw;
+  .image-wrapper {
+    height: 225px;
+    margin-right: 2rem;
+    .image {
+      height: 100%;
+    }
+  }
+}
+
+#newsletter {
+  display: flex;
+  padding: 2rem;
+  .title-wrapper {
+    width: 50vw;
+  }
+  .forms-wrapper {
+    width: 50vw;
+    display: flex;
+    input {
+      width: 100%;
+      padding: 1rem;
+      background: $graywhite;
+      border: none;
+    }
+    button {
+      padding: 1rem 2rem;
+      background: $darkgreen;
+      color: $white;
+      border: none;
+      margin-left: 2rem;
+      font-weight: 700;
+    }
+  }
+  @media screen and (max-width: 501px) {
+    flex-direction: column;
+    .title-wrapper,
+    .forms-wrapper {
+      width: unset;
+    }
+  }
+}
