@@ -1,4 +1,12 @@
 import "./App.scss";
+import { useState, useEffect, useReducer } from "react";
+import { ThemeContext, theme } from "./utils/contexts/theme-context";
+
+import Banner from "./components/Banner";
+import Article1 from "./components/Article1";
+import Article2 from "./components/Article2";
+import Horizontal from "./components/Horizontal";
+import Newsletter from "./components/Newsletter";
 
 import banner from "./assets/banner.jpg";
 import articleImg1 from "./assets/img_2.png";
@@ -7,107 +15,34 @@ import img1 from "./assets/img_4.png";
 import img2 from "./assets/img_5.png";
 import img3 from "./assets/img_6.png";
 import img4 from "./assets/img_7.png";
+import { initialState, showArticleReducer } from "./store/reducers";
 
 const App = () => {
-  const showArticle = true;
+  // const [showArticle, setShowArticle] = useState(true);
+  const [themeId, setThemeId] = useState("light");
+  const [state, dispatch] = useReducer(showArticleReducer, initialState);
 
   const greeting = () => {
-    alert("email submitted!");
+    // setShowArticle(showArticle ? false : true);
+    // setThemeId(themeId === "light" ? "dark" : "light");
+    dispatch({ type: `${state}` });
   };
 
+  useEffect(() => {
+    console.log("showArticle has changed to", state);
+  }, [state]);
+
   return (
-    <div className="App">
-      <div id="banner">
-        <img src={banner} className="image" />
+    <ThemeContext.Provider value={theme[themeId]}>
+      <div className="App">
+        <Banner img={banner} />
+        <Article1 img={articleImg1} state={state} />
+        {state && <Article2 img={articleImg2} />}
+        <Horizontal imgs={[img1, img2, img3, img4, img1]} />
+        <Newsletter greetingFn={greeting} />
       </div>
-      {showArticle ? (
-        <div className="article article-1">
-          <div className="image-wrapper">
-            <img src={articleImg1} className="image" />
-          </div>
-          <div className="content-wrapper">
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
-            </p>
-          </div>
-        </div>
-      ) : (
-        <></>
-      )}
-      {showArticle ? (
-        <div className="article article-2">
-          <div className="image-wrapper-mobile">
-            <img src={articleImg2} className="image" />
-          </div>
-          <div className="content-wrapper">
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
-              <br />
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
-            </p>
-          </div>
-          <div className="image-wrapper">
-            <img src={articleImg2} className="image" />
-          </div>
-        </div>
-      ) : (
-        <></>
-      )}
-      <div id="horizontal">
-        <div className="image-wrapper">
-          <img src={img1} className="image image-1" />
-        </div>
-        <div className="image-wrapper">
-          <img src={img2} className="image image-2" />
-        </div>
-        <div className="image-wrapper">
-          <img src={img3} className="image image-3" />
-        </div>
-        <div className="image-wrapper">
-          <img src={img4} className="image image-4" />
-        </div>
-        <div className="image-wrapper">
-          <img src={img1} className="image image-1" />
-        </div>
-      </div>
-      <div id="newsletter">
-        <div className="title-wrapper">
-          <h3>NEWSLETTER</h3>
-        </div>
-        <div className="forms-wrapper">
-          <input placeholder="Email" />
-          <button onClick={greeting}>SUBMMIT</button>
-        </div>
-      </div>
-    </div>
+    </ThemeContext.Provider>
   );
-}
+};
 
 export default App;
