@@ -3,7 +3,7 @@ import { ThemeContext } from "../utils/contexts/theme-context";
 
 const Article2 = (props) => {
   const theme = useContext(ThemeContext);
-  console.log("Article1", theme);
+
   return (
     <div
       className="article article-2"

@@ -29,7 +29,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    console.log("showArticle has changed to", state);
+    // console.log("showArticle has changed to", state);
   }, [state]);
 
   return (
