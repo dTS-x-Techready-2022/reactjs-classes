@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/reactjs-classes/static/css/main.cfb32d73.css",
+    "main.js": "/reactjs-classes/static/js/main.aba45547.js",
+    "static/js/787.3a7d1513.chunk.js": "/reactjs-classes/static/js/787.3a7d1513.chunk.js",
+    "static/media/banner.jpg": "/reactjs-classes/static/media/banner.aa52063421c343e05eee.jpg",
+    "static/media/img_2.png": "/reactjs-classes/static/media/img_2.606303386aa2503b349a.png",
+    "static/media/img_1.png": "/reactjs-classes/static/media/img_1.c820690b7b63afd38426.png",
+    "static/media/img_6.png": "/reactjs-classes/static/media/img_6.8e3566f68df5cb883511.png",
+    "static/media/img_4.png": "/reactjs-classes/static/media/img_4.cf9b9441d40a9a0822a0.png",
+    "static/media/img_7.png": "/reactjs-classes/static/media/img_7.7e922d9607a7de4dda40.png",
+    "static/media/img_5.png": "/reactjs-classes/static/media/img_5.b905429cda9211f41ffc.png",
+    "index.html": "/reactjs-classes/index.html",
+    "main.cfb32d73.css.map": "/reactjs-classes/static/css/main.cfb32d73.css.map",
+    "main.aba45547.js.map": "/reactjs-classes/static/js/main.aba45547.js.map",
+    "787.3a7d1513.chunk.js.map": "/reactjs-classes/static/js/787.3a7d1513.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cfb32d73.css",
+    "static/js/main.aba45547.js"
+  ]
+}
